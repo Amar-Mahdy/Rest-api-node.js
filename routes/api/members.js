@@ -28,11 +28,11 @@ router.post('/', (req, res)=>{
     status: 'active'
    }
    if(!newMember.name || !newMember.email){
-       return res.status(400).json({msg:'please include a new name and email'})
+       return res.status(400).render('index',{msg:'please include a new name and email'})
    }
    members.push(newMember)
-   res.json(members)
-//    res.redirect('/')
+   res.render('index', members)
+   res.redirect('/')
 })
 
 //update member
